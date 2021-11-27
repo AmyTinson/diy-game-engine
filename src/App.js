@@ -1,25 +1,11 @@
-import logo from './logo.svg';
-import './App.css';
+import { Room } from './2d-engine/room/Room'
 
-function App() {
+const App = () => {
+  const GameRoom = Room.fullSizeRoom
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+      <GameRoom id='game room'></GameRoom>
+  )
 }
 
-export default App;
+export default App
