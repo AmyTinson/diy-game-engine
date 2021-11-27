@@ -1,7 +1,7 @@
 import styled from "styled-components"
-import * as GLOBAL from '../global/defaults'
+import * as GLOBAL from '../GLOBAL/DEFAULTS'
 
-export const Room = {
+export const Rooms = {
   fullSizeRoom: styled.canvas`
     width: 100%;
     height: 100vh;
