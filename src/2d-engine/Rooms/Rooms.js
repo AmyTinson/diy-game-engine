@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import * as GLOBAL from '../GLOBAL/DEFAULTS'
+import * as GLOBAL from '../GLOBAL/defaults'
 
 export const Rooms = {
   fullSizeRoom: styled.div`
