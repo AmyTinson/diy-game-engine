@@ -1,13 +1,26 @@
 import React, { useState, useEffect } from 'react'
 import * as GLOBAL from './2d-engine/GLOBAL/DEFAULTS'
 import { Rooms } from './2d-engine/Rooms/Rooms'
-
+import { keyboardControls } from './2d-engine/Controllers/keyboardControls'
 import { StarBackground } from './assets/starBackground/StarBackground.js'
+import { ReactComponent as PlayerIcon } from './assets/cuteCometIcon/cuteCometIcon.svg'
 
 const App = () => {
   const [playerState, setPlayerState] = useState(GLOBAL.DEFAULT_PLAYER_STATE)
 
   const GameRoom = Rooms.fullSizeRoom
+
+  useEffect(() => { 
+    window.addEventListener('keydown', (e) => {
+      keyboardControls(e)
+    })
+
+    return () => {
+      window.removeEventListener('keydown', () => {
+        console.log('key down!')
+      })
+    }
+  }, [])
 
   return (
     <>
@@ -17,7 +30,9 @@ const App = () => {
         onClick={() => {
           console.log('clicked')
         }}
-      ></GameRoom>
+      >
+        <PlayerIcon></PlayerIcon>
+      </GameRoom>
     </>
   )
 }
