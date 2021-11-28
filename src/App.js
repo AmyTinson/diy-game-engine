@@ -3,21 +3,21 @@ import * as GLOBAL from './2d-engine/GLOBAL/defaults.js'
 import { Rooms } from './2d-engine/Rooms/Rooms'
 import { keyboardControls } from './2d-engine/Controllers/keyboardControls'
 import { StarBackground } from './assets/starBackground/StarBackground.js'
-import { ReactComponent as PlayerIcon } from './assets/cuteCometIcon/cuteCometIcon.svg'
 
 const App = () => {
   const [playerState, setPlayerState] = useState(GLOBAL.DEFAULT_PLAYER_STATE)
-
+  const PlayerSprite = playerState.sprite
   const GameRoom = Rooms.fullSizeRoom
 
+  // Input listener
   useEffect(() => { 
     window.addEventListener('keydown', (e) => {
       keyboardControls(e)
     })
 
     return () => {
-      window.removeEventListener('keydown', () => {
-        console.log('key down!')
+      window.removeEventListener('keydown', (e) => {
+        keyboardControls(e)
       })
     }
   }, [])
@@ -31,7 +31,7 @@ const App = () => {
           console.log('clicked')
         }}
       >
-        <PlayerIcon></PlayerIcon>
+        <PlayerSprite></PlayerSprite>
       </GameRoom>
     </>
   )
